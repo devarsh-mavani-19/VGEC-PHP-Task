@@ -4,7 +4,7 @@ require('./functions.php');
 session_start();
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
-    $select = "select name, email, education, DOB from registration r, users u where  r.id = u.id ";
+    $select = "select name, email, education, DOB from registration r, users u where  r.id = u.id and r.email = '" . $email . "'";
     $res = mysqli_query($con, $select);
     if (mysqli_error($con)) {
         echo "<scrpit>alert('Something went wrong');</script>";
